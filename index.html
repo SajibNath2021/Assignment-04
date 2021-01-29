@@ -62,7 +62,7 @@
                     <input id="firstClass-count" class="inp-style inp-width" type="number" name="" value= "0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p><span onclick="addRemove(true)"> + </span> <span onclick="addRemove(false)"> -</span></p>
+                    <p><span onclick="addRemove2(true)"> + </span> <span onclick="addRemove2(false)"> -</span></p>
                 </div>
             </div>
             
@@ -72,7 +72,7 @@
                     <input id="economy-count" class="inp-style inp-width" type="number" name="" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span id="addEconomy">+</span> <span id="removeEconomy">-</span> </p>
+                    <p> <span onclick="addRemove(true)">+</span> <span onclick="addRemove(false)">-</span> </p>
                 </div>
             </div>
             <div class="calculations">
@@ -113,7 +113,7 @@
         //first class 
          
          //onclick tue &&false
-          function addRemove(increase){
+          function addRemove2(increase){
             const firstClassCount = document.getElementById("firstClass-count").value;
               const CountNumber  = parseInt(firstClassCount);
               let totalCount = CountNumber;
@@ -133,27 +133,26 @@
 
 
           //EconomyClass
-          const addEconomy = document.getElementById("addEconomy");
-          addEconomy.addEventListener('click', function(){
-            const firstClassCount = document.getElementById("economy-count").value;
-              const CountNumber  = parseInt(firstClassCount);
-              const totalCount = CountNumber + 1 ;
-              document.getElementById("economy-count").value = totalCount;   
-              const totalPrice = totalCount * 100;
-              document.getElementById("subTotal").innerText = totalPrice;
+        
 
-          })
-          const removeEconomy = document.getElementById("removeEconomy");
-          removeEconomy.addEventListener('click', function(){
+          function addRemove(increase){
             const firstClassCount = document.getElementById("economy-count").value;
               const CountNumber  = parseInt(firstClassCount);
-            if(CountNumber > 0){
-               const totalCount = CountNumber - 1 ;
-              document.getElementById("economy-count").value = totalCount
-              const totalPrice = totalCount * 100;
-              document.getElementById("subTotal").innerText = totalPrice;
-            }
-          })
+              let totalCount = CountNumber;
+              if(increase == true){
+                 totalCount = totalCount + 1 ;
+              }
+              if(increase == false && totalCount > 0){
+                totalCount = totalCount - 1 ;
+              }
+              
+              document.getElementById("economy-count").value = totalCount; 
+
+            //   const totalPrice = totalCount * 150;
+            //   document.getElementById("subTotal").innerText = totalPrice;
+          }
+
+      
 
          
     </script>
