@@ -31,7 +31,9 @@
 
         <div class="booking-content">
             <h1>Cruise Queen</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book./p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book./p>
         </div>
 
 
@@ -48,32 +50,34 @@
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                        <input class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
                     <input class="inp-style" type="date" name="">
                 </div>
             </div>
-            
+
             <!-- start -->
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input id="firstClass-count" class="inp-style inp-width" type="number" name="" value= "0">
+                    <input id="firstClass-count" class="inp-style inp-width" type="number" name="" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p><button><span onclick="addRemove('firstClass', true)"> + </span></button> <button><span onclick="addRemove('firstClass', false)">-</span></button></p>
+                    <p><button><span onclick="addRemove('firstClass', true)"> + </span></button> <button><span
+                                onclick="addRemove('firstClass', false)">-</span></button></p>
                 </div>
             </div>
-            
+
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input id="economy-count" class="inp-style inp-width" type="number" name="" value = "0">
+                    <input id="economy-count" class="inp-style inp-width" type="number" name="" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p><button><span onclick="addRemove('economy', true)">+</span></button>  <button><span onclick="addRemove('economy', false)">-</span></button> </p>
+                    <p><button><span onclick="addRemove('economy', true)">+</span></button> <button><span
+                                onclick="addRemove('economy', false)">-</span></button> </p>
                 </div>
             </div>
             <div class="calculations">
@@ -113,7 +117,7 @@
 
     <section id="Conformation" class="container">
         <div class="confirmBox">
-            <article >
+            <article>
                 <h2 style="padding: 10px;">YOUR ORDER DETAILS</h2>
                 <div style="padding: 10px;">
                     <label for="">First Class Ticket = <span id="ticketQuantity">0</span></label>
@@ -125,110 +129,123 @@
                     <label for="">Sub Total Price = <span id="subtotal-price">$150</span></label>
                 </div style="padding: 10px;">
                 <div style="padding: 10px;">
-                     <label for="">Tex = <span id="total-tex">$100</span></label>
+                    <label for="">Tex = <span id="total-tex">$100</span></label>
                 </div>
                 <div style="padding: 10px;">
-                    <label for="">Total Price  = <span id="total-price">$100</span></label>
-               </div>
-               
+                    <label for="">Total Price = <span id="total-price">$100</span></label>
+                </div>
+
             </article>
             <div style="padding: 10px;">
                 <h3 style="padding: 5px;">Email</h3>
-                <input  class="inp-style" type="email" name="" placeholder= "Enter your Email" style="width: 70%; height: 30px; border-radius: 5px;border: none;border: none;box-shadow: 5px 5px 10px  lightgray;" >
+                <input class="inp-style" type="email" name="" placeholder="Enter your Email"
+                    style="width: 70%; height: 30px; border-radius: 5px;border: none;border: none;box-shadow: 5px 5px 10px  lightgray;">
             </div>
-            <button id="BookNow-btn" class="btn-style" style="padding: 10px;">Confirm</button>
-        </div>    
+            <button id="Conform-btn" class="btn-style" style="padding: 10px;">Confirm</button>
+        </div>
     </section>
     <!-- end of HTML -->
 
     <script>
         //Booking Page
         // firstClass EconomyClass all thing in one function  
-        function addRemove(id, increase){
-            const firstClassCount = document.getElementById(id +"-count");
-              const CountNumber  = parseInt(firstClassCount.value);
-              let totalCount = CountNumber;
-              if(increase == true){
-                 totalCount = totalCount + 1 ;
-              }
-              if(increase == false && totalCount > 0){
-                totalCount = totalCount - 1 ;
-              }
-              
-              firstClassCount.value = totalCount; 
-              Price();
-          }
-       
+        function addRemove(id, increase) {
+            const firstClassCount = document.getElementById(id + "-count");
+            const CountNumber = parseInt(firstClassCount.value);
+            let totalCount = CountNumber;
+            if (increase == true) {
+                totalCount = totalCount + 1;
+            }
+            if (increase == false && totalCount > 0) {
+                totalCount = totalCount - 1;
+            }
+
+            firstClassCount.value = totalCount;
+            Price();
+        }
 
 
-      //subtotal,tex, total
-      function Price() {
 
-           //subtotal
-           const firstClass = IdParsingInt("firstClass");
-           const economyClass = IdParsingInt("economy");
-           const SubTotal = firstClass * 150 + economyClass * 100;
-           document.getElementById("subTotal").innerText = "$" + SubTotal;
+        //subtotal,tex, total
+        function Price() {
 
-           //tex 
-           const tex = Math.round(SubTotal * 0.1);
-           document.getElementById("Tex").innerText = "$" + tex;
-          
-           //Total Price
-           const Total = SubTotal + tex;
-           document.getElementById("Total").innerText = "$" + Total;
-      }
-      
+            //subtotal
+            const firstClass = IdParsingInt("firstClass");
+            const economyClass = IdParsingInt("economy");
+            const SubTotal = firstClass * 150 + economyClass * 100;
+            document.getElementById("subTotal").innerText = "$" + SubTotal;
+
+            //tex 
+            const tex = Math.round(SubTotal * 0.1);
+            document.getElementById("Tex").innerText = "$" + tex;
+
+            //Total Price
+            const Total = SubTotal + tex;
+            document.getElementById("Total").innerText = "$" + Total;
+        }
+
         // Price() function Id parsing for (Booking Page)
-      function IdParsingInt(id){
-         const idInput = document.getElementById(id +'-count');
-         const idParsing = parseInt(idInput.value);
-         return idParsing;
-      }
+        function IdParsingInt(id) {
+            const idInput = document.getElementById(id + '-count');
+            const idParsing = parseInt(idInput.value);
+            return idParsing;
+        }
 
 
 
-      //Conformation Page
-      const bookNowBtn = document.getElementById('BookNow-btn');
-      bookNowBtn.addEventListener("click", function(){
-          const bookingPage = document.getElementById("Booking-page");
-          bookingPage.style.display = "none";
-          const Conformation = document.getElementById('Conformation');
-          Conformation.style.display = "block";
+        //Conformation Page
+        const bookNowBtn = document.getElementById('BookNow-btn');
+        bookNowBtn.addEventListener("click", function () {
+            const bookingPage = document.getElementById("Booking-page");
+            bookingPage.style.display = "none";
+            const Conformation = document.getElementById('Conformation');
+            Conformation.style.display = "block";
 
-       //first class ticket Quantity
-          const TicketQuantity = IdParsingInt2("ticketQuantity");       
-          const quantity = document.getElementById('firstClass-count').value;
-          document.getElementById('ticketQuantity').innerText = quantity;
+            //first class ticket Quantity
+            const TicketQuantity = IdParsingInt2("ticketQuantity");
+            const quantity = document.getElementById('firstClass-count').value;
+            document.getElementById('ticketQuantity').innerText = quantity;
 
-      // economy class ticket Quantity
-          const EconomyQuantity = IdParsingInt2('EconomyQuantity');
-          const totalQuantity = document.getElementById("economy-count").value;
-          document.getElementById('EconomyQuantity').innerText = totalQuantity;
-       
-        //subtotal
-          const subTotal = IdParsingInt2('subtotal-price');
-          const subtotal = document.getElementById("subTotal").innerText ;
-          document.getElementById('subtotal-price').innerText= subtotal;
+            // economy class ticket Quantity
+            const EconomyQuantity = IdParsingInt2('EconomyQuantity');
+            const totalQuantity = document.getElementById("economy-count").value;
+            document.getElementById('EconomyQuantity').innerText = totalQuantity;
+
+            //subtotal
+            const subTotal = IdParsingInt2('subtotal-price');
+            const subtotal = document.getElementById("subTotal").innerText;
+            document.getElementById('subtotal-price').innerText = subtotal;
+
+            //tex
+            const tex = IdParsingInt2('total-tex');
+            const texIn = document.getElementById("Tex").innerText;
+            document.getElementById('total-tex').innerText = texIn;
+
+            //   total
+            const firstShowPrice = IdParsingInt2('total-price');
+            const total = document.getElementById("Total").innerText;
+            document.getElementById("total-price").innerText = total;
+        })
+
+
+        //BookNow btn 
+        document.getElementById("Conform-btn").addEventListener('click', function () {
+            alert(
+                '        CONFIRMED! Now Check Your Email', 
+            )
+        })
+
+
+        // Price() function Id parsing for (conformation page)
+        function IdParsingInt2(id) {
+            const idInput = document.getElementById(id);
+            const idParsing = parseInt(idInput.innerText);
+            return idParsing;
+        }
         
-        //tex
-          const tex = IdParsingInt2('total-tex');
-          const texIn =  document.getElementById("Tex").innerText;
-          document.getElementById('total-tex').innerText = texIn;
 
-         //   total
-          const firstShowPrice = IdParsingInt2('total-price');
-          const total = document.getElementById("Total").innerText;
-          document.getElementById("total-price").innerText = total;
-      })
-
-      
-  // Price() function Id parsing for (conformation page)
-      function IdParsingInt2(id){
-         const idInput = document.getElementById(id );
-         const idParsing = parseInt(idInput.innerText);
-         return idParsing;
-      }
+        // all end 
+        // thank you !
     </script>
 </body>
 
