@@ -121,7 +121,7 @@
             <article>
                 <h2 style="padding: 10px;">YOUR ORDER DETAILS</h2>
                 <div style="padding: 10px;">
-                    <label for="">First Class Ticket = <span id="ticketQuantity">0</span></label>
+                    <label for="">First Class Ticket = <span id="FirstClassQuantity">0</span></label>
                 </div>
                 <div style="padding: 10px;">
                     <label for="">Economy Class Ticket = <span id="EconomyQuantity">0</span></label>
@@ -202,9 +202,9 @@
             Conformation.style.display = "block";
 
             //first class ticket Quantity
-            const TicketQuantity = IdParsingInt2("ticketQuantity");
-            const quantity = document.getElementById('firstClass-count').value;
-            document.getElementById('ticketQuantity').innerText = quantity;
+            const FirstClassQuantity = IdParsingInt2("FirstClassQuantity");
+            const TotalQuantity = document.getElementById('firstClass-count').value;
+            document.getElementById('FirstClassQuantity').innerText = TotalQuantity;
 
             // economy class ticket Quantity
             const EconomyQuantity = IdParsingInt2('EconomyQuantity');
