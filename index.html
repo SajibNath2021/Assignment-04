@@ -69,7 +69,7 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input id="economy-count" class="inp-style inp-width" type="number" name="" value="0">
+                    <input id="economy-count" class="inp-style inp-width" type="number" name="" value = "0">
                 </div>
                 <div class="plus-minus-btn">
                     <p> <span onclick="addRemove(true)">+</span> <span onclick="addRemove(false)">-</span> </p>
@@ -128,6 +128,7 @@
 
             //   const totalPrice = totalCount * 150;
             //   document.getElementById("subTotal").innerText = totalPrice;
+            Price()
           }
 
 
@@ -147,14 +148,26 @@
               }
               
               document.getElementById("economy-count").value = totalCount; 
-
-            //   const totalPrice = totalCount * 150;
-            //   document.getElementById("subTotal").innerText = totalPrice;
+              Price();
           }
 
-      
+      //subtotal,tex, total
 
-         
+      function Price() {
+           
+           const firstClass = IdParsingInt("firstClass");
+           const economyClass = IdParsingInt("economy");
+           console.log(economyClass);
+           const SubTotal = firstClass * 150 + economyClass * 100;
+           document.getElementById("subTotal").innerText = SubTotal;
+          
+      }
+        
+      function IdParsingInt(id){
+         const idInput = document.getElementById(id +'-count');
+         const idParsing = parseInt(idInput.value);
+         return idParsing;
+      }
     </script>
 </body>
 
