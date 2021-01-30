@@ -55,6 +55,7 @@
                     <input class="inp-style" type="date" name="">
                 </div>
             </div>
+            
             <!-- start -->
             <div class="input-group f-class">
                 <div>
@@ -62,7 +63,7 @@
                     <input id="firstClass-count" class="inp-style inp-width" type="number" name="" value= "0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p><span onclick="addRemove2(true)"> + </span> <span onclick="addRemove2(false)"> -</span></p>
+                    <p><span onclick="addRemove('firstClass', true)"> + </span> <span onclick="addRemove('firstClass', false)"> -</span></p>
                 </div>
             </div>
             
@@ -72,7 +73,7 @@
                     <input id="economy-count" class="inp-style inp-width" type="number" name="" value = "0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span onclick="addRemove(true)">+</span> <span onclick="addRemove(false)">-</span> </p>
+                    <p> <span onclick="addRemove('economy', true)">+</span> <span onclick="addRemove('economy', false)">-</span> </p>
                 </div>
             </div>
             <div class="calculations">
@@ -90,7 +91,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p id="Tex">$50</p>
                     </div>
                 </div>
                 <hr>
@@ -99,7 +100,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p id="Total">$550</p>
                     </div>
                 </div>
             </div>
@@ -110,12 +111,9 @@
     <!--Thank You-->
 
     <script>
-        //first class 
-         
-         //onclick tue &&false
-          function addRemove2(increase){
-            const firstClassCount = document.getElementById("firstClass-count").value;
-              const CountNumber  = parseInt(firstClassCount);
+        function addRemove(id, increase){
+            const firstClassCount = document.getElementById(id +"-count");
+              const CountNumber  = parseInt(firstClassCount.value);
               let totalCount = CountNumber;
               if(increase == true){
                  totalCount = totalCount + 1 ;
@@ -124,44 +122,63 @@
                 totalCount = totalCount - 1 ;
               }
               
-              document.getElementById("firstClass-count").value = totalCount; 
-
-            //   const totalPrice = totalCount * 150;
-            //   document.getElementById("subTotal").innerText = totalPrice;
-            Price()
-          }
-
-
-
-          //EconomyClass
-        
-
-          function addRemove(increase){
-            const firstClassCount = document.getElementById("economy-count").value;
-              const CountNumber  = parseInt(firstClassCount);
-              let totalCount = CountNumber;
-              if(increase == true){
-                 totalCount = totalCount + 1 ;
-              }
-              if(increase == false && totalCount > 0){
-                totalCount = totalCount - 1 ;
-              }
-              
-              document.getElementById("economy-count").value = totalCount; 
+              firstClassCount.value = totalCount; 
               Price();
           }
+        //first class 
+         //onclick tue &&false
+        //   function addRemove2(id, increase){
+        //     const firstClassCount = document.getElementById(id +"-count");
+        //       const CountNumber  = parseInt(firstClassCount.value);
+        //       let totalCount = CountNumber;
+        //       if(increase == true){
+        //          totalCount = totalCount + 1 ;
+        //       }
+        //       if(increase == false && totalCount > 0){
+        //         totalCount = totalCount - 1 ;
+        //       }
+              
+        //       firstClassCount.value = totalCount; 
+        //       Price();
+        //   }
+
+
+
+          //EconomyClass     
+        //   function addRemove(increase){
+        //     const firstClassCount = document.getElementById("economy-count").value;
+        //       const CountNumber  = parseInt(firstClassCount);
+        //       let totalCount = CountNumber;
+        //       if(increase == true){
+        //          totalCount = totalCount + 1 ;
+        //       }
+        //       if(increase == false && totalCount > 0){
+        //         totalCount = totalCount - 1 ;
+        //       }
+              
+        //       document.getElementById("economy-count").value = totalCount; 
+        //       Price();
+        //   }
+
 
       //subtotal,tex, total
-
       function Price() {
-           
+
+           //subtotal
            const firstClass = IdParsingInt("firstClass");
            const economyClass = IdParsingInt("economy");
-           console.log(economyClass);
            const SubTotal = firstClass * 150 + economyClass * 100;
-           document.getElementById("subTotal").innerText = SubTotal;
+           document.getElementById("subTotal").innerText = "$" + SubTotal;
+
+           //tex 
+           const tex = Math.round(SubTotal * 0.1);
+           document.getElementById("Tex").innerText = "$" + tex;
           
+           //Total Price
+           const Total = SubTotal + tex;
+           document.getElementById("Total").innerText = "$" + Total;
       }
+      
         
       function IdParsingInt(id){
          const idInput = document.getElementById(id +'-count');
