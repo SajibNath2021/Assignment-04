@@ -130,3 +130,13 @@ nav ul li a:hover, a.active{
 #Conformation{
     display: none;
 }
+.confirmBox{
+    text-align: center;
+    margin: 65px;
+    margin-left: 310px;
+    width: 50%;
+    height: 440px;
+    padding: 50px;
+    border-radius: 30px;
+    background-color: #F3F5FF;
+}
