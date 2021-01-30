@@ -115,6 +115,7 @@
 
     <!--Thank You-->
 
+    <!-- Conformation Page  -->
     <section id="Conformation" class="container">
         <div class="confirmBox">
             <article>
@@ -164,11 +165,9 @@
             Price();
         }
 
-
-
-        //subtotal,tex, total
+        
+        //subtotal,tex, total all in one call function
         function Price() {
-
             //subtotal
             const firstClass = IdParsingInt("firstClass");
             const economyClass = IdParsingInt("economy");
@@ -194,6 +193,7 @@
 
 
         //Conformation Page
+        //clicking BookNow btn 
         const bookNowBtn = document.getElementById('BookNow-btn');
         bookNowBtn.addEventListener("click", function () {
             const bookingPage = document.getElementById("Booking-page");
@@ -227,23 +227,22 @@
             document.getElementById("total-price").innerText = total;
         })
 
-
-        //BookNow btn 
-        document.getElementById("Conform-btn").addEventListener('click', function () {
-            alert(
-                '        CONFIRMED! Now Check Your Email', 
-            )
-        })
-
-
         // Price() function Id parsing for (conformation page)
         function IdParsingInt2(id) {
             const idInput = document.getElementById(id);
             const idParsing = parseInt(idInput.innerText);
             return idParsing;
         }
-        
 
+
+        //Confirm btn  with last Conformation Message 
+        document.getElementById("Conform-btn").addEventListener('click', function () {
+            alert(
+                'YOUR ORDER CONFIRMED..!!! Now Check Your Email..!', 
+            )
+        })
+        
+        
         // all end 
         // thank you !
     </script>
