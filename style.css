@@ -8,6 +8,7 @@
 body{
     font-family: 'Roboto', sans-serif;
     background:url("images/ship.png");
+    height: 650px;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: scroll;
@@ -124,4 +125,8 @@ nav ul li a:hover, a.active{
 .amount{
     display: flex;
     justify-content: space-between;
+}
+
+#Conformation{
+    display: none;
 }

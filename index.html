@@ -27,7 +27,7 @@
     </header>
 
     <!--Booking Section-->
-    <main class="main-content container">
+    <main id="Booking-page" class="main-content container">
 
         <div class="booking-content">
             <h1>Cruise Queen</h1>
@@ -104,14 +104,34 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="BookNow-btn" class="btn-style">Book Now</button>
         </div>
     </main>
 
+
     <!--Thank You-->
 
-    <script>
+    <section id="Conformation" class="container">
+        
+        <article>
+            <h1>confirm total</h1>
+            <div>
+                <label for="">Sub Total Price = <span id="subtotal-price">$150</span></label>
+            </div>
+            <div>
+                 <label for="">Tex = <span id="total-tex">$100</span></label>
+            </div>
+            <div>
+                <label for="">Total Price  = <span id="total-price">$100</span></label>
+           </div>
+           
+        </article>
+        
+    </section>
+    <!-- end of HTML -->
 
+    <script>
+        //Booking Page
         // firstClass EconomyClass all thing in one function  
         function addRemove(id, increase){
             const firstClassCount = document.getElementById(id +"-count");
@@ -154,6 +174,43 @@
          const idParsing = parseInt(idInput.value);
          return idParsing;
       }
+
+
+
+      //Conformation Page
+      //display change
+      const bookNowBtn = document.getElementById('BookNow-btn');
+      bookNowBtn.addEventListener("click", function(){
+          const bookingPage = document.getElementById("Booking-page");
+          bookingPage.style.display = "none";
+          const Conformation = document.getElementById('Conformation');
+          Conformation.style.display = "block";
+
+       
+       
+        //subtotal
+        const subTotal = document.getElementById('subtotal-price').innerText;
+        const SubTotalNumber = parseInt(subTotal);
+
+        const subtotal = document.getElementById("subTotal").innerText ;
+        document.getElementById('subtotal-price').innerText= subtotal;
+        
+        //tex
+        const tex = document.getElementById('total-tex').innerText;
+        const texNumber = parseInt (tex);
+
+        const texIn =  document.getElementById("Tex").innerText;
+        document.getElementById('total-tex').innerText = texIn;
+
+         //   total
+         const firstShowPrice = document.getElementById("total-price").innerText;
+        const number = parseInt(firstShowPrice);
+        
+        const total = document.getElementById("Total").innerText;
+        document.getElementById("total-price").innerText = total;
+      })
+      
+
     </script>
 </body>
 
