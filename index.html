@@ -63,7 +63,7 @@
                     <input id="firstClass-count" class="inp-style inp-width" type="number" name="" value= "0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p><span onclick="addRemove('firstClass', true)"> + </span> <span onclick="addRemove('firstClass', false)"> -</span></p>
+                    <p><button><span onclick="addRemove('firstClass', true)"> + </span></button> <button><span onclick="addRemove('firstClass', false)">-</span></button></p>
                 </div>
             </div>
             
@@ -73,7 +73,7 @@
                     <input id="economy-count" class="inp-style inp-width" type="number" name="" value = "0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span onclick="addRemove('economy', true)">+</span> <span onclick="addRemove('economy', false)">-</span> </p>
+                    <p><button><span onclick="addRemove('economy', true)">+</span></button>  <button><span onclick="addRemove('economy', false)">-</span></button> </p>
                 </div>
             </div>
             <div class="calculations">
@@ -111,6 +111,8 @@
     <!--Thank You-->
 
     <script>
+
+        // firstClass EconomyClass all thing in one function  
         function addRemove(id, increase){
             const firstClassCount = document.getElementById(id +"-count");
               const CountNumber  = parseInt(firstClassCount.value);
@@ -125,40 +127,7 @@
               firstClassCount.value = totalCount; 
               Price();
           }
-        //first class 
-         //onclick tue &&false
-        //   function addRemove2(id, increase){
-        //     const firstClassCount = document.getElementById(id +"-count");
-        //       const CountNumber  = parseInt(firstClassCount.value);
-        //       let totalCount = CountNumber;
-        //       if(increase == true){
-        //          totalCount = totalCount + 1 ;
-        //       }
-        //       if(increase == false && totalCount > 0){
-        //         totalCount = totalCount - 1 ;
-        //       }
-              
-        //       firstClassCount.value = totalCount; 
-        //       Price();
-        //   }
-
-
-
-          //EconomyClass     
-        //   function addRemove(increase){
-        //     const firstClassCount = document.getElementById("economy-count").value;
-        //       const CountNumber  = parseInt(firstClassCount);
-        //       let totalCount = CountNumber;
-        //       if(increase == true){
-        //          totalCount = totalCount + 1 ;
-        //       }
-        //       if(increase == false && totalCount > 0){
-        //         totalCount = totalCount - 1 ;
-        //       }
-              
-        //       document.getElementById("economy-count").value = totalCount; 
-        //       Price();
-        //   }
+       
 
 
       //subtotal,tex, total
@@ -179,7 +148,7 @@
            document.getElementById("Total").innerText = "$" + Total;
       }
       
-        
+        // Price() function Id parsing
       function IdParsingInt(id){
          const idInput = document.getElementById(id +'-count');
          const idParsing = parseInt(idInput.value);
